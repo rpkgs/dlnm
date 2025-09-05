@@ -152,8 +152,8 @@ crossreduce <- function(
     names(list$RRhigh) <- names(fit)
   } else {
     list$low <- fit - z * se
-    names(list$low) <- names(fit)
     list$high <- fit + z * se
+    names(list$low) <- names(fit)
     names(list$high) <- names(fit)
   }
 

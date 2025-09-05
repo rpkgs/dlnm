@@ -34,3 +34,4 @@ URL: https://github.com/gasparrini/dlnm,
 License: GPL (>=2)
 LazyData: yes
 VignetteBuilder: knitr
+Encoding: UTF-8

@@ -3,6 +3,7 @@ cr <- function(x, df = 10, knots = NULL, intercept = FALSE, fx = FALSE, S = NULL
   x <- as.vector(x)
   nax <- is.na(x)
   if (nas <- any(nax)) x <- x[!nax]
+  
   # DEFINE KNOTS AND DF
   if (is.null(knots)) {
     if (df < 3) stop("'df' must be >=3")
@@ -10,6 +11,7 @@ cr <- function(x, df = 10, knots = NULL, intercept = FALSE, fx = FALSE, S = NULL
   } else {
     df <- length(knots) - !intercept
   }
+
   # CHECK NUMBER OF UNIQUE x VALUES
   # (ADD SOME IF NEEDED TO PREVENT ERROR IN smooth.construct.cr.smooth.spec)
   if (add <- length(unique(x)) < length(knots)) {
