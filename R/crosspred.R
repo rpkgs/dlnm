@@ -5,7 +5,6 @@ crosspred <- function(
   # DETERMINE THE TYPE OF MODEL AND CHECKS
   # TYPE OF PREDICTION: CROSSBASIS, ONEBASIS, OR PENALIZED GAM
   type <- if (any(class(basis) %in% "crossbasis")) "cb" else if (any(class(basis) %in% "onebasis")) "one" else "gam"
-  #
   # CHECKS ON TYPE, AND SET name, basis AND RESET type
   errormes <- "arguments 'basis' and 'model' not consistent. See help(crosspred)"
   if (type == "gam") {

@@ -1,6 +1,4 @@
 crossbasis <- function(x, lag, argvar = list(), arglag = list(), group = NULL, ...) {
-  # COHERENCE CHECKS
-  # CHECK OLD USAGE
   checkcrossbasis(argvar, arglag, list(...))
   #  lag MUST BE A POSITIVE INTEGER VECTOR
   lag <- if (missing(lag)) c(0, NCOL(x) - 1) else mklag(lag)

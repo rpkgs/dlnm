@@ -1,10 +1,7 @@
-
 Predict.matrix.cb.smooth <- function(object, data) {
-
   # TERMS AND DIMENSIONS
   term <- object$term
   dim <- length(term)
-#
   # BUILD MARGINAL BASES
   Xm <- list()
   for (i in seq(dim)) { 
@@ -16,10 +13,8 @@ Predict.matrix.cb.smooth <- function(object, data) {
       Xm[[i]] <- do.call("onebasis",c(list(x=data[[term[i]]]),margin))
     }
   }
-#
   # NB: NO REPARAMETERIZATION THROUGH XP
   # TENSOR (USING mgcv FUNCTION)
   X <- tensor.prod.model.matrix(Xm)
-#
   return(X)
 }

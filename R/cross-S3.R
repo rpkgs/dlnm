@@ -1,20 +1,3 @@
-coef.crossreduce <- function(object, ...) {
-  return(object$coef)
-}
-
-coef.crosspred <- function(object, ...) {
-  return(object$coef)
-}
-
-vcov.crossreduce <- function(object, ...) {
-  return(object$vcov)
-}
-
-vcov.crosspred <- function(object, ...) {
-  return(object$vcov)
-}
-
-
 getcoef <- function(model, class) {
   # NB: gam, gee AND geeglm HAVE CLASS glm AS WELL
   coef <- if (any(class %in% c("glm", "gam", "coxph"))) {
@@ -78,4 +61,20 @@ getvcov <- function(model, class) {
     )
   }
   return(vcov)
+}
+
+coef.crossreduce <- function(object, ...) {
+  return(object$coef)
+}
+
+coef.crosspred <- function(object, ...) {
+  return(object$coef)
+}
+
+vcov.crossreduce <- function(object, ...) {
+  return(object$vcov)
+}
+
+vcov.crosspred <- function(object, ...) {
+  return(object$vcov)
 }

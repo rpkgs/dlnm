@@ -29,7 +29,6 @@ mkcen <- function(cen, type, basis, range) {
     gam = basis$margin[[1]]$intercept
   )
   if (is.logical(int) && int) cen <- NULL
-  # MESSAGE
   if (nocen && !is.null(cen)) {
     message("centering value unspecified. Automatically set to ", cen)
   }
