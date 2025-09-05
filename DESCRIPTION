@@ -30,10 +30,12 @@ Suggests:
     data.table,
     mixmeta,
     knitr,
-    rmarkdown
+    rmarkdown,
+    testthat (>= 3.0.0)
 URL: https://github.com/gasparrini/dlnm,
   http://www.ag-myresearch.com/package-dlnm
 License: GPL (>=2)
 LazyData: yes
 VignetteBuilder: knitr
 Encoding: UTF-8
+Config/testthat/edition: 3

@@ -88,7 +88,8 @@ crossbasis <- function(x, lag, argvar = list(), arglag = list(), group = NULL, .
 
   attributes(crossbasis) <- c(attributes(crossbasis), list(
     df = c(vx, vl), range = range(x, na.rm = T), lag = lag,
-    argvar = argvar, arglag = arglag
+    argvar = argvar, arglag = arglag, 
+    basisvar = basisvar, basislag = basislag
   ))
   if (!is.null(group)) attributes(crossbasis)$group <- length(unique(group))
 
