@@ -1,17 +1,9 @@
-###
-### R routines for the R package dlnm (c)
-#
 cbPen <- function(cb, sp = -1, addSlag = NULL) {
-  #
-  ################################################################################
-  #
   if (all(class(cb) != "crossbasis") & all(class(cb) != "onebasis")) {
     stop("first argument must be object of class 'crossbasis' or 'onebasis")
   }
-  #
   # ATTRIBUTES
   attr <- attributes(cb)
-  #
   # TRANSFORM ONEBASIS
   if (one <- any(class(cb) == "onebasis")) {
     ind <- match(names(formals(attr$fun)), names(attr), nomatch = 0)
@@ -21,7 +13,6 @@ cbPen <- function(cb, sp = -1, addSlag = NULL) {
       arglag = list(fun = "strata", df = 1, int = TRUE)
     )
   }
-  #
   # DEFINE PENALTY TERMS
   ff <- c(attr$argvar$fun, attr$arglag$fun)
   fx <- c(
@@ -31,21 +22,17 @@ cbPen <- function(cb, sp = -1, addSlag = NULL) {
   Slist <- list()
   if (!fx[1]) Slist <- c(Slist, list(Svar = attr$argvar$S %x% diag(attr$df[2])))
   if (!fx[2]) Slist <- c(Slist, list(Slag = diag(attr$df[1]) %x% attr$arglag$S))
-  #
   # RESCALING
   Slist <- lapply(Slist, function(X) {
     X / eigen(X, symmetric = TRUE, only.values = TRUE)$values[1]
   })
-  #
   # ADDITIONAL PENALTIES ON LAG
   if (one & !is.null(addSlag)) {
     stop("penalties on lag not allowed for class 'onebasis")
   }
   if (!is.null(addSlag)) Slist <- c(Slist, mkaddSlag(addSlag, attr$df))
-  #
   # RANK
   rank <- sapply(Slist, findrank)
-  #
   # SMOOTHING PARAMETERS
   # sp MUST BE NUMERIC AND CONSISTENT WITH NUMBER AND ORDER OF PENALTY TERMS
   npen <- length(Slist)
@@ -55,7 +42,6 @@ cbPen <- function(cb, sp = -1, addSlag = NULL) {
     stop("'sp' must be numeric and consistent with number of penalty terms")
   }
   names(sp) <- names(Slist)
-  #
   res <- c(Slist, list(rank = rank, sp = sp))
   return(res)
 }

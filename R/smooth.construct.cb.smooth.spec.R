@@ -1,10 +1,6 @@
-###
-### R routines for the R package dlnm (c)
-#
+
 smooth.construct.cb.smooth.spec <- function(object, data, knots) {
-#
-################################################################################
-#
+
   # CHECK THAT THE SMOOTHER IS APPLIED TO A SINGLE TERM
   if(length(object$term)!=2L) stop("'cb' smoother only accepts two terms")
 #
@@ -14,9 +10,7 @@ smooth.construct.cb.smooth.spec <- function(object, data, knots) {
 #
   # PREVENT USE OF by
   if(object$by!="NA") stop("'by' argument not (yet) applicable with 'cb' smoother")
-#
-################################################################################
-# DEFINE ARGUMENTS FOR BUILDING MARGINAL BASES: term, k, fx, bs, m (NO xt NEEDED)
+#  DEFINE ARGUMENTS FOR BUILDING MARGINAL BASES: term, k, fx, bs, m (NO xt NEEDED)
 #
   # TERMS AND DIMENSIONS
   term <- object$term
@@ -41,9 +35,7 @@ smooth.construct.cb.smooth.spec <- function(object, data, knots) {
   fx <- object$fixed
   if(sum(is.na(fx))||is.null(fx)) fx <- rep(FALSE,2) else 
     if(length(fx)==1) fx <- rep(fx,2)
-#
-################################################################################
-# BUILD THE MARGINAL BASES
+#  BUILD THE MARGINAL BASES
 #
   # SET EMPTY LISTS TO STORE THE RESULTS
   margin <- dat <- knt <- Xm <- Sm <- list(var=NULL,lag=NULL)
@@ -85,10 +77,7 @@ smooth.construct.cb.smooth.spec <- function(object, data, knots) {
       d[i] <- nr[i] <- ncol(Xm[[i]])
     }
   }
-#
-################################################################################
-# BUILD TENSOR AND PENALTY MATRICES
-#
+#  BUILD TENSOR AND PENALTY MATRICES
   # TENSOR (USING mgcv FUNCTION)
   # NB: REMOVING NAMES SPEEDS UP THE TENSOR COMPUTATION SUBSTANTIALLY
   X <- tensor.prod.model.matrix(unname(Xm))
@@ -119,9 +108,7 @@ smooth.construct.cb.smooth.spec <- function(object, data, knots) {
 #
   # ERASE MARGINAL BASIS AND PENALTY MATRICES TO SAVE MEMORY
   for(i in seq(dim)) margin[[i]]$X <- margin[[i]]$S <- NULL
-#
-################################################################################
-# ADD OTHER INFO AND SET OTHER FEATURES OF TENSOR
+#  ADD OTHER INFO AND SET OTHER FEATURES OF TENSOR
 #
   # BUILD THE OBJECT (SOME INFO IN THE ORIGINAL SMOOTH SPEC OBJECT)
   # NB:

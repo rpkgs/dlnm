@@ -1,11 +1,7 @@
-###
-### R routines for the R package dlnm (c)
-#
+
 summary.onebasis <-
 function(object, ...) {
-#
-################################################################################
-#
+
   attr <- attributes(object)
   cat("BASIS FUNCTION\n")
   cat("observations:",nrow(object),"\n")

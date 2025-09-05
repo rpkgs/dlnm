@@ -1,12 +1,8 @@
-###
-### R routines for the R package dlnm (c)
-#
+
 points.crosspred <-
 function(x, ptype, var=NULL, lag=NULL, ci="n", ci.arg,
   ci.level=x$ci.level, cumul=FALSE, exp=NULL, ...) {
-#
-################################################################################
-#  
+  
   if(all(class(x)!="crosspred")) stop("'x' must be of class 'crosspred'")
   ci <- match.arg(ci,c("area","bars","lines","n"))
 #

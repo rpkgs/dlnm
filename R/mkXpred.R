@@ -1,11 +1,5 @@
-###
-### R routines for the R package dlnm (c)
-#
-mkXpred <-
-function(type, basis, at, predvar, predlag, cen) {
-#
-################################################################################
-# CREATE THE MATRIX OF TRANSFORMED CENTRED VARIABLES (DEPENDENT ON TYPE)
+mkXpred <- function(type, basis, at, predvar, predlag, cen) {
+#  CREATE THE MATRIX OF TRANSFORMED CENTRED VARIABLES (DEPENDENT ON TYPE)
 #
   # CREATE VECTORIZED LAGGED VALUES
   varvec <- if(is.matrix(at)) as.numeric(at) else rep(at,length(predlag))

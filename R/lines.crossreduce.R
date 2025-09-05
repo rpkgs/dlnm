@@ -1,11 +1,7 @@
-###
-### R routines for the R package dlnm (c)
-#
+
 lines.crossreduce <-
 function(x, ci="n", ci.arg, ci.level=x$ci.level, exp=NULL, ...) {
-#
-################################################################################
-#
+
   if(all(class(x)!="crossreduce")) stop("'x' must be of class 'crossreduce'")
   ci <- match.arg(ci,c("area","bars","lines","n"))
 #

@@ -1,11 +1,7 @@
-###
-### R routines for the R package dlnm (c)
-#
+
 checkonebasis <- 
 function(fun, args, cen) {
-#
-################################################################################
-#
+
   # CHECK fun, AND IF fun HAS x ARGUMENT
   if(!is.character(fun)) stop("'fun' must be a string referring to a function")
   if(all(names(formals(fun)) != "x")) stop("'fun' must contain argument 'x'")

@@ -1,11 +1,7 @@
-###
-### R routines for the R package dlnm (c)
-#
+
 checkcrossbasis <- 
 function(argvar, arglag, addarg) {
-#
-################################################################################
-#
+
   # CHECK LIST FORMAT
   if(!is.list(argvar)) stop("'argvar' must be a list")
   if(!is.list(arglag)) stop("'arglag' must be a list")

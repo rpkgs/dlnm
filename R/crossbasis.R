@@ -1,10 +1,7 @@
-###
-### R routines for the R package dlnm (c)
-#
+
 crossbasis <-
   function(x, lag, argvar = list(), arglag = list(), group = NULL, ...) {
-    #
-    ################################################################################
+       ################################################################################
     # COHERENCE CHECKS
     # CHECK OLD USAGE
     checkcrossbasis(argvar, arglag, list(...))
@@ -43,8 +40,7 @@ crossbasis <-
     # THE BASIS TRANSFORMATIONS ARE ONLY APPLIED TO THE LAG VECTOR
     # DIMENSIONS ACCOUNTED FOR IN CROSS-BASIS COMPUTATIONS BELOW
     basislag <- do.call("onebasis", modifyList(arglag, list(x = seqlag(lag))))
-    #
-    ############################################################################
+       ############################################################################
     # CROSSBASIS COMPUTATION
     # GROUP
     if (!is.null(group)) checkgroup(group, x, basisvar, lag)

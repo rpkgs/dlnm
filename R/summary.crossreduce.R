@@ -1,11 +1,7 @@
-###
-### R routines for the R package dlnm (c)
-#
+
 summary.crossreduce <-
 function(object, ...) {
-#
-################################################################################
-#
+
   cat("REDUCED FIT\n")
   cat("type:",object$type,"\n")
   cat("dimension:",ifelse(object$type!="var","predictor","lag"),"\n")

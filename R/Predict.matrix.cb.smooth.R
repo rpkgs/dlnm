@@ -1,10 +1,6 @@
-###
-### R routines for the R package dlnm (c)
-#
+
 Predict.matrix.cb.smooth <- function(object, data) {
-#
-################################################################################
-#
+
   # TERMS AND DIMENSIONS
   term <- object$term
   dim <- length(term)

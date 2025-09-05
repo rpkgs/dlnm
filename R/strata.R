@@ -1,11 +1,7 @@
-###
-### R routines for the R package dlnm (c)
-#
+
 strata <-
 function(x, df=1, breaks=NULL, ref=1, intercept=FALSE) {
-#
-################################################################################
-#
+
   nx <- names(x)
   x <- as.vector(x)
   range <- range(x,na.rm=TRUE)

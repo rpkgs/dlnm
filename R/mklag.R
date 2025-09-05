@@ -1,4 +1,3 @@
-###
 mklag <- function(lag) {
   #  lag MUST BE A POSITIVE INTEGER VECTOR
   if (any(!is.numeric(lag)) || length(lag) > 2) {
@@ -8,3 +7,6 @@ mklag <- function(lag) {
   if (diff(lag) < 0L) stop("lag[1] must be <= lag[2]")
   return(round(lag[1L:2L]))
 }
+
+
+seqlag <- function(lag, by = 1) seq(from = lag[1], to = lag[2], by = by)

@@ -1,11 +1,7 @@
-###
-### R routines for the R package dlnm (c)
-#
+
 onebasis <-
 function(x, fun="ns", ...) {
-#
-################################################################################
-#
+
   nx <- names(x)
   x <- as.vector(x)
   range <- range(x,na.rm=TRUE)

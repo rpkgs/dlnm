@@ -1,11 +1,7 @@
-###
-### R routines for the R package dlnm (c)
-#
+
 summary.crosspred <-
 function(object, ...) {
-#
-################################################################################
-#
+
   cat("PREDICTIONS:\n")
   cat("values:",length(object$predvar),"\n")
   if(!is.null(object$cen)) cat("centered at:",object$cen,"\n")

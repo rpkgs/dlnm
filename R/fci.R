@@ -1,11 +1,4 @@
-###
-### R routines for the R package dlnm (c)
-#
-fci <-
-function(ci, x, high, low, ci.arg, plot.arg, noeff=NULL) {
-#
-################################################################################
-#
+fci <- function(ci, x, high, low, ci.arg, plot.arg, noeff=NULL) {
   if(ci=="area") {
     polygon.arg <- modifyList(list(col=grey(0.9),border=NA),ci.arg)
     polygon.arg <- modifyList(polygon.arg,
@@ -32,4 +25,3 @@ function(ci, x, high, low, ci.arg, plot.arg, noeff=NULL) {
   }
   if(!is.null(noeff)) abline(h=noeff)
 }
-

@@ -1,14 +1,8 @@
-###
-### R routines for the R package dlnm (c)
-#
 crossreduce <-
 function(basis, model=NULL, type="overall", value=NULL, coef=NULL, vcov=NULL,
   model.link=NULL, at=NULL, from=NULL, to=NULL, by=NULL, lag, bylag=1, cen=NULL,
   ci.level=0.95) {
-#
-################################################################################
-# CHECK BASIS AND WRITE CONDITION (REGULAR EXPRESSION) TO EXTRACT COEF-VCOV
-#
+  #  CHECK BASIS AND WRITE CONDITION (REGULAR EXPRESSION) TO EXTRACT COEF-VCOV
   if(all(class(basis)!="crossbasis")) {
     stop("the first argument must be an object of class 'crossbasis'")
   }

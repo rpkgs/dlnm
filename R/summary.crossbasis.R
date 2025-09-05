@@ -1,11 +1,7 @@
-###
-### R routines for the R package dlnm (c)
-#
+
 summary.crossbasis <-
 function(object, ...) {
-#
-################################################################################
-#
+
   attr <- attributes(object)
   cat("CROSSBASIS FUNCTIONS\n")
   cat("observations:",nrow(object),"\n")
