@@ -52,6 +52,9 @@
       <a href="../articles/basics.html">basics</a>
     </li>
     <li>
+      <a href="../articles/crosspred.html">crosspred</a>
+    </li>
+    <li>
       <a href="../articles/dlmnTS.html">dlmnTS</a>
     </li>
   </ul>
@@ -95,7 +98,8 @@
 <h2 id="example01">Example01<a class="anchor" aria-label="anchor" href="#example01"></a>
 </h2>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">chicagoNMMAPS</span>, <span class="fl">3</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="co"># df = data.table(chicagoNMMAPS)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">chicagoNMMAPS</span>, <span class="fl">3</span><span class="op">)</span></span>
 <span><span class="co">#&gt;         date time year month doy      dow death cvd resp       temp   dptp</span></span>
 <span><span class="co">#&gt; 1 1987-01-01    1 1987     1   1 Thursday   130  65   13 -0.2777778 31.500</span></span>
 <span><span class="co">#&gt; 2 1987-01-02    2 1987     1   2   Friday   150  73   14  0.5555556 29.875</span></span>
@@ -111,7 +115,7 @@
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">cb1.temp</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/crossbasis.html">crossbasis</a></span><span class="op">(</span><span class="va">chicagoNMMAPS</span><span class="op">$</span><span class="va">temp</span>, lag <span class="op">=</span> <span class="fl">3</span>, </span>
-<span>  argvar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>df <span class="op">=</span> <span class="fl">5</span><span class="op">)</span>,</span>
+<span>  argvar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>df <span class="op">=</span> <span class="fl">5</span><span class="op">)</span>, <span class="co"># ns</span></span>
 <span>  arglag <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>fun <span class="op">=</span> <span class="st">"strata"</span>, breaks <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
 <span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">cb1.pm</span><span class="op">)</span></span>
@@ -130,25 +134,25 @@
 <span><span class="co">#&gt; degree: 4 </span></span>
 <span><span class="co">#&gt; scale: 15 </span></span>
 <span><span class="co">#&gt; intercept: TRUE</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">cb1.temp</span><span class="op">)</span></span>
-<span><span class="co">#&gt; CROSSBASIS FUNCTIONS</span></span>
-<span><span class="co">#&gt; observations: 5114 </span></span>
-<span><span class="co">#&gt; range: -26.66667 to 33.33333 </span></span>
-<span><span class="co">#&gt; lag period: 0 3 </span></span>
-<span><span class="co">#&gt; total df:  10 </span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; BASIS FOR VAR:</span></span>
-<span><span class="co">#&gt; fun: ns </span></span>
-<span><span class="co">#&gt; knots: 0.2777778 6.666667 14.44444 20.94444 </span></span>
-<span><span class="co">#&gt; intercept: FALSE </span></span>
-<span><span class="co">#&gt; Boundary.knots: -26.66667 33.33333 </span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; BASIS FOR LAG:</span></span>
-<span><span class="co">#&gt; fun: strata </span></span>
-<span><span class="co">#&gt; df: 2 </span></span>
-<span><span class="co">#&gt; breaks: 1 </span></span>
-<span><span class="co">#&gt; ref: 1 </span></span>
-<span><span class="co">#&gt; intercept: TRUE</span></span></code></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">cb1.temp</span><span class="op">)</span></span>
+<span><span class="co">#&gt;  'crossbasis' num [1:5114, 1:10] NA NA NA 2.01 2.03 ...</span></span>
+<span><span class="co">#&gt;  - attr(*, "dimnames")=List of 2</span></span>
+<span><span class="co">#&gt;   ..$ : NULL</span></span>
+<span><span class="co">#&gt;   ..$ : chr [1:10] "v1.l1" "v1.l2" "v2.l1" "v2.l2" ...</span></span>
+<span><span class="co">#&gt;  - attr(*, "df")= int [1:2] 5 2</span></span>
+<span><span class="co">#&gt;  - attr(*, "range")= num [1:2] -26.7 33.3</span></span>
+<span><span class="co">#&gt;  - attr(*, "lag")= num [1:2] 0 3</span></span>
+<span><span class="co">#&gt;  - attr(*, "argvar")=List of 4</span></span>
+<span><span class="co">#&gt;   ..$ fun           : chr "ns"</span></span>
+<span><span class="co">#&gt;   ..$ knots         : num [1:4] 0.278 6.667 14.444 20.944</span></span>
+<span><span class="co">#&gt;   ..$ intercept     : logi FALSE</span></span>
+<span><span class="co">#&gt;   ..$ Boundary.knots: num [1:2] -26.7 33.3</span></span>
+<span><span class="co">#&gt;  - attr(*, "arglag")=List of 5</span></span>
+<span><span class="co">#&gt;   ..$ fun      : chr "strata"</span></span>
+<span><span class="co">#&gt;   ..$ df       : int 2</span></span>
+<span><span class="co">#&gt;   ..$ breaks   : num 1</span></span>
+<span><span class="co">#&gt;   ..$ ref      : num 1</span></span>
+<span><span class="co">#&gt;   ..$ intercept: logi TRUE</span></span></code></pre></div>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">splines</span><span class="op">)</span></span>
 <span><span class="va">model1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/glm.html" class="external-link">glm</a></span><span class="op">(</span><span class="va">death</span> <span class="op">~</span> <span class="va">cb1.pm</span> <span class="op">+</span> <span class="va">cb1.temp</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/splines/ns.html" class="external-link">ns</a></span><span class="op">(</span><span class="va">time</span>, <span class="fl">7</span> <span class="op">*</span> <span class="fl">14</span><span class="op">)</span> <span class="op">+</span> <span class="va">dow</span>,</span>
