@@ -13,6 +13,7 @@ cbPen <- function(cb, sp = -1, addSlag = NULL) {
       arglag = list(fun = "strata", df = 1, int = TRUE)
     )
   }
+
   # DEFINE PENALTY TERMS
   ff <- c(attr$argvar$fun, attr$arglag$fun)
   fx <- c(

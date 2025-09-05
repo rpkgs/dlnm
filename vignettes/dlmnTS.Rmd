@@ -1,3 +1,19 @@
+---
+title: "dlmnTS"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{dlmnTS2}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
 ```{r}
 library(dlnm)
 set.seed(13041975)

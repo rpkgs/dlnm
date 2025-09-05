@@ -21,12 +21,16 @@ Imports: stats,
   mgcv,
   tsModel
 Depends: R (>= 4.4)
-Suggests: survival,
-  lme4,
-  gee,
-  geepack,
-  mixmeta
+Suggests: 
+    survival,
+    lme4,
+    gee,
+    geepack,
+    mixmeta,
+    knitr,
+    rmarkdown
 URL: https://github.com/gasparrini/dlnm,
   http://www.ag-myresearch.com/package-dlnm
 License: GPL (>=2)
 LazyData: yes
+VignetteBuilder: knitr
