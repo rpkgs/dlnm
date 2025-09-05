@@ -35,6 +35,8 @@ export(smooth.construct.cb.smooth.spec,Predict.matrix.cb.smooth)
 # IMPORTED
 #################
 #
+importFrom(magrittr,set_class)
+
 import(stats,graphics,grDevices)
 importFrom(utils,packageDescription)
 importFrom(utils,modifyList)

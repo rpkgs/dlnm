@@ -22,7 +22,7 @@ set.seed(13041975)
 ## Example01
 
 ```{r}
-df = data.table(chicagoNMMAPS)
+# df = data.table(chicagoNMMAPS)
 head(chicagoNMMAPS, 3)
 
 cb1.pm <- crossbasis(chicagoNMMAPS$pm10, lag = 15, 
