@@ -51,15 +51,16 @@ crossbasis <- function(x, lag, argvar = list(), arglag = list(), group = NULL, .
   #   NB: ORDER OF TRANSFORMATION IN THE TENSOR CHANGED SINCE VERSION 2.2.4
   vx <- ncol(basisvar) # var: [n, vx]
   vl <- ncol(basislag) # lag: [nlag, vl]
+
   crossbasis <- matrix(0, nrow = dim[1], ncol = vx * vl)
   for (v in seq(length = vx)) { # for t
     if (dim[2] == 1L) {
       mat <- as.matrix(Lag(basisvar[, v], seqlag(lag), group = group))
+      # mat: {X[n, t], X[n, t-1], ..., X[n, t-L]}
     } else {
       mat <- matrix(basisvar[, v], ncol = diff(lag) + 1)
     }
     for (l in seq(length = vl)) {
-      # mat: {X[n, t], X[n, t-1], ..., X[n, t-L]}
       ck <- basislag[, l] #
       crossbasis[, vl * (v - 1) + l] <- mat %*% ck # 精彩
     }
